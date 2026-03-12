@@ -14,8 +14,8 @@ import tushare as ts
 import warnings
 warnings.filterwarnings('ignore')
 
-# 设置Tushare Token
-TUSHARE_TOKEN = "e71c793f44bc9d99bdd321ec7dc1ddbba53faf1a63278fabeae21b44"
+# 设置Tushare Token (从环境变量读取)
+TUSHARE_TOKEN = os.getenv('TUSHARE_TOKEN', '')
 os.environ['TUSHARE_TOKEN'] = TUSHARE_TOKEN
 pro = ts.pro_api(TUSHARE_TOKEN)
 
