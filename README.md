@@ -25,6 +25,22 @@
 - 情绪与股性分析：捕捉市场情绪变化
 - 风险控制评估：把控潜在风险
 
+### 🎮 模拟交易
+
+A股模拟交易技能，支持买入、卖出、查询资产、查看交易记录功能。
+
+**交易流程（8步）：**
+1. 交易时间检查（集合竞价9:15-9:25，连续竞价9:30-11:30、13:00-14:57）
+2. 获取实时股价（自动从腾讯财经获取）
+3. 涨跌幅限制检查（主板±10%、创业板/科创板±20%、ST±5%）
+4. 交易单位检查（主板100股、科创板200股起）
+5. 资金/持仓/T+1检查
+6. 执行交易
+7. 费用计算（佣金万2、印花税千1、过户费万0.1）
+8. 更新资产和交易记录
+
+**T+1制度：** 当日买入需下一交易日才能卖出，智能区分历史持仓和今日买入
+
 ### 📈 每日报告
 
 - 自动生成量化评分 TOP 20 股票
@@ -51,6 +67,7 @@ skills/
 ├── quant-score/       # 量化评分技能
 ├── stock-filter/      # 股票初筛技能
 ├── daily_report/      # 每日报告技能
+├── 模拟交易/         # A股模拟交易技能
 └── ...
 ```
 
@@ -68,6 +85,22 @@ python skills/stock-filter/quant_score.py
 python skills/quant-score/score.py
 ```
 
+### 运行模拟交易
+
+```bash
+# 买入股票
+python 模拟交易/scripts/trading.py buy <股票代码> <数量>
+
+# 卖出股票
+python 模拟交易/scripts/trading.py sell <股票代码> <数量>
+
+# 查询资产
+python 模拟交易/scripts/trading.py status
+
+# 查看交易记录
+python 模拟交易/scripts/trading.py history
+```
+
 ### 运行每日报告
 
 ```bash
@@ -83,51 +116,3 @@ export TUSHARE_TOKEN="your_token_here"
 ---
 
 *由 AI 助手运行维护*
-
----
-
-# English
-
-## JOJOClaw 🦞
-
-> Personal AI assistant based on OpenClaw, focused on stock quantitative analysis
-
-### Introduction
-
-This is a personal AI assistant running on the OpenClaw platform, mainly used for quantitative analysis and stock selection in the A-share market.
-
-### Features
-
-- **Stock Screening**: Exclude ST/*ST and limit-up/limit-down stocks
-- **Quantitative Scoring**: Multi-dimensional analysis including price trends, capital flow, liquidity, sentiment, and risk control
-- **Daily Report**: Auto-generate TOP 20 stocks and push to Telegram
-
-### Scheduled Tasks
-
-- Stock Screening: 8:00 daily (Mon-Fri)
-- Quant Scoring: 8:30 daily (Mon-Fri)
-- Daily Report: 9:30 daily (Mon-Fri)
-
----
-
-# Español
-
-## JOJOClaw 🦞
-
-> Asistente de IA personal basado en OpenClaw, enfocado en análisis cuantitativo de acciones
-
-### Introducción
-
-Este es un asistente de IA personal que se ejecuta en la plataforma OpenClaw, principalmente utilizado para análisis cuantitativo y selección de acciones en el mercado A-share.
-
-### Funciones
-
-- **Filtrado de Acciones**: Excluir acciones ST/*ST y con límite de precio
-- **Puntuación Cuantitativa**: Análisis multidimensional incluyendo tendencias de precios, flujo de capital, liquidez, sentimiento y control de riesgos
-- **Informe Diario**: Generar automáticamente TOP 20 y enviar a Telegram
-
-### Tareas Programadas
-
-- Filtrado: 8:00 diario (Lun-Vie)
-- Puntuación: 8:30 diario (Lun-Vie)
-- Informe: 9:30 diario (Lun-Vie)
