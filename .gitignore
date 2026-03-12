@@ -1,6 +1,6 @@
 # Nested Git Repos (submodules)
-skills/
-tushare/
+# skills/
+# tushare/
 
 # Python
 __pycache__/
