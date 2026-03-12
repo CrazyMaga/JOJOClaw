@@ -1,0 +1,46 @@
+# Nested Git Repos (submodules)
+skills/
+tushare/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+env/
+ENV/
+*.egg-info/
+dist/
+build/
+
+# OpenClaw
+.clawhub/
+.openclaw/
+.elite-memory.db/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data & Logs
+*.log
+data/
+output/
+models/
+llama.cpp/
+llama-cuda.zip
+temp_*.py
+
+# Sensitive
+*.json
+!package.json
+token*
