@@ -1,31 +1,3 @@
-<!-- 语言切换 / Language Switch / Cambio de Idioma -->
-<script>
-function showLang(lang) {
-  document.querySelectorAll('.lang-section').forEach(el => el.style.display = 'none');
-  document.getElementById(lang).style.display = 'block';
-  document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-  document.querySelector('[onclick="showLang(\'' + lang + '\')"]').classList.add('active');
-}
-</script>
-
-<style>
-.lang-btn { padding: 5px 10px; margin: 2px; cursor: pointer; border: 1px solid #ddd; background: #f5f5f5; border-radius: 3px; }
-.lang-btn.active { background: #007bff; color: white; border-color: #007bff; }
-.lang-section { display: none; }
-#zh { display: block; }
-</style>
-
-<div align="center">
-  <button class="lang-btn active" onclick="showLang('zh')">🇨🇳 中文</button>
-  <button class="lang-btn" onclick="showLang('en')">🇺🇸 English</button>
-  <button class="lang-btn" onclick="showLang('es')">🇪🇸 Español</button>
-</div>
-
----
-
-<!-- 中文版 / Chinese / Chino -->
-<div id="zh" class="lang-section">
-
 # JOJOClaw 🦞
 
 > 基于 OpenClaw 的个人 AI 助手，专注于股票量化分析
@@ -75,8 +47,8 @@ function showLang(lang) {
 ```
 skills/
 ├── quant-score/       # 量化评分技能
-├── stock-filter/     # 股票初筛技能
-├── daily_report/     # 每日报告技能
+├── stock-filter/      # 股票初筛技能
+├── daily_report/       # 每日报告技能
 └── ...
 ```
 
@@ -110,186 +82,50 @@ export TUSHARE_TOKEN="your_token_here"
 
 *由 AI 助手运行维护*
 
-</div>
-
 ---
 
-<!-- English / 英文 / Inglés -->
-<div id="en" class="lang-section">
+# English
 
-# JOJOClaw 🦞
+## JOJOClaw 🦞
 
 > Personal AI assistant based on OpenClaw, focused on stock quantitative analysis
 
-## Introduction
+### Introduction
 
 This is a personal AI assistant running on the OpenClaw platform, mainly used for quantitative analysis and stock selection in the A-share market.
 
-## Features
+### Features
 
-### 📊 Stock Screening
+- **Stock Screening**: Exclude ST/*ST and limit-up/limit-down stocks
+- **Quantitative Scoring**: Price trends, capital flow, liquidity, sentiment, risk control
+- **Daily Report**: Auto-generate TOP 20 stocks and push to Telegram
 
-- Exclude ST/*ST stocks
-- Exclude limit-up/limit-down stocks
-- Filter stocks with active trading volume
-- Filter stocks with sufficient volatility
+### Scheduled Tasks
 
-### ⭐ Quantitative Scoring
-
-- Price trend analysis (moving average alignment)
-- Capital flow tracking (net inflow of main funds)
-- Liquidity assessment
-- Sentiment and stock behavior analysis
-- Risk control assessment
-
-### 📈 Daily Report
-
-- Auto-generate TOP 20 stocks by quantitative score
-- Scheduled push to Telegram
-
-## Scheduled Tasks
-
-| Task | Time | Description |
-|------|------|-------------|
-| Stock Screening | 8:00 daily (Mon-Fri) | Run screening skill |
-| Quant Scoring | 8:30 daily (Mon-Fri) | Score screening results |
-| Daily Report | 9:30 daily (Mon-Fri) | Generate and push report |
-
-## Tech Stack
-
-- **Platform**: [OpenClaw](https://github.com/openclaw/openclaw)
-- **Data Source**: [Tushare](https://tushare.pro/)
-- **Push**: Telegram Bot
-
-## Skills Directory
-
-```
-skills/
-├── quant-score/       # Quantitative scoring skill
-├── stock-filter/     # Stock screening skill
-├── daily_report/      # Daily report skill
-└── ...
-```
-
-## Usage
-
-### Run Stock Screening
-
-```bash
-python skills/stock-filter/quant_score.py
-```
-
-### Run Quant Scoring
-
-```bash
-python skills/quant-score/score.py
-```
-
-### Run Daily Report
-
-```bash
-python skills/daily_report/report_sender.py
-```
-
-## Environment Variables
-
-```bash
-export TUSHARE_TOKEN="your_token_here"
-```
+- Stock Screening: 8:00 daily (Mon-Fri)
+- Quant Scoring: 8:30 daily (Mon-Fri)
+- Daily Report: 9:30 daily (Mon-Fri)
 
 ---
 
-*Maintained by AI assistant*
+# Español
 
-</div>
-
----
-
-<!-- Español / 西班牙语 / Spanish -->
-<div id="es" class="lang-section">
-
-# JOJOClaw 🦞
+## JOJOClaw 🦞
 
 > Asistente de IA personal basado en OpenClaw, enfocado en análisis cuantitativo de acciones
 
-## Introducción
+### Introducción
 
 Este es un asistente de IA personal que se ejecuta en la plataforma OpenClaw, principalmente utilizado para análisis cuantitativo y selección de acciones en el mercado A-share.
 
-## Funciones
+### Funciones
 
-### 📊 Filtrado de Acciones
+- **Filtrado de Acciones**: Excluir acciones ST/*ST y con límite de precio
+- **Puntuación Cuantitativa**: Tendencias de precios, flujo de capital, liquidez, sentimiento, control de riesgos
+- **Informe Diario**: Generar automáticamente TOP 20 y enviar a Telegram
 
-- Excluir acciones ST/*ST
-- Excluir acciones con límite de precio
-- Filtrar acciones con volumen activo
-- Filtrar acciones con volatilidad suficiente
+### Tareas Programadas
 
-### ⭐ Puntuación Cuantitativa
-
-- Análisis de tendencia de precios (alineación de medias móviles)
-- Seguimiento de flujo de capital (entrada neta de fondos principales)
-- Evaluación de liquidez
-- Análisis de sentimiento y comportamiento de acciones
-- Evaluación de control de riesgos
-
-### 📈 Informe Diario
-
-- Generar automáticamente TOP 20 acciones por puntuación cuantitativa
-- Envío programado a Telegram
-
-## Tareas Programadas
-
-| Tarea | Hora | Descripción |
-|-------|------|-------------|
-| Filtrado | 8:00 diario (Lun-Vie) | Ejecutar habilidad de filtrado |
-| Puntuación | 8:30 diario (Lun-Vie) | Puntuar resultados del filtrado |
-| Informe | 9:30 diario (Lun-Vie) | Generar y enviar informe |
-
-## Stack Tecnológico
-
-- **Plataforma**: [OpenClaw](https://github.com/openclaw/openclaw)
-- **Fuente de Datos**: [Tushare](https://tushare.pro/)
-- **Envío**: Telegram Bot
-
-## Directorio de Habilidades
-
-```
-skills/
-├── quant-score/        # Habilidad de puntuación cuantitativa
-├── stock-filter/      # Habilidad de filtrado de acciones
-├── daily_report/      # Habilidad de informe diario
-└── ...
-```
-
-## Uso
-
-### Ejecutar Filtrado de Acciones
-
-```bash
-python skills/stock-filter/quant_score.py
-```
-
-### Ejecutar Puntuación Cuantitativa
-
-```bash
-python skills/quant-score/score.py
-```
-
-### Ejecutar Informe Diario
-
-```bash
-python skills/daily_report/report_sender.py
-```
-
-## Variables de Entorno
-
-```bash
-export TUSHARE_TOKEN="your_token_here"
-```
-
----
-
-*Mantenido por asistente de IA*
-
-</div>
+- Filtrado: 8:00 diario (Lun-Vie)
+- Puntuación: 8:30 diario (Lun-Vie)
+- Informe: 9:30 diario (Lun-Vie)
