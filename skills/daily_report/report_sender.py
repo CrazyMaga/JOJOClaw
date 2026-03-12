@@ -28,8 +28,13 @@ pro = ts.pro_api(TUSHARE_TOKEN)
 
 def get_latest_scored_file():
     """获取最新的量化评分结果文件"""
-    today = datetime.datetime.now().strftime('%Y%m%d')
+    # 优先读取 skills/quant-score 目录下的文件
+    scored_file = 'skills/quant-score/stock_scored_result.json'
+    if os.path.exists(scored_file):
+        return scored_file
     
+    # 备选：读取根目录的文件
+    today = datetime.datetime.now().strftime('%Y%m%d')
     filename = f'stock_scored_{today}.json'
     if os.path.exists(filename):
         return filename
