@@ -20,6 +20,8 @@ build/
 .clawhub/
 .openclaw/
 .elite-memory.db/
+.venv/
+venv/
 
 # IDE
 .vscode/
@@ -37,10 +39,20 @@ data/
 output/
 models/
 llama.cpp/
+llama-cuda/
 llama-cuda.zip
 temp_*.py
+
+# Large models
+*.bin
+*.gguf
+*.pt
+*.pth
 
 # Sensitive
 *.json
 !package.json
 token*
+
+# Session
+SESSION-STATE.md
