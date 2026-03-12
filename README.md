@@ -17,11 +17,13 @@
 
 ### ⭐ 量化评分
 
-- 价格动线分析（均线多头排列）
-- 资金流向追踪（主力资金净流入）
-- 流动性保障评估
-- 情绪与股性分析
-- 风险控制评估
+采用多维度综合评分体系，从市场趋势、资金流向、流动性、情绪热度、风险控制等多个角度对股票进行全方位评估。通过对历史数据的深度分析和算法模型，计算出每只股票的量化得分，帮助识别具有上涨潜力的优质股票。
+
+- 价格动线分析：研判股价走势健康度
+- 资金流向追踪：洞察主力资金动向
+- 流动性保障评估：确保交易顺畅
+- 情绪与股性分析：捕捉市场情绪变化
+- 风险控制评估：把控潜在风险
 
 ### 📈 每日报告
 
@@ -48,7 +50,7 @@
 skills/
 ├── quant-score/       # 量化评分技能
 ├── stock-filter/      # 股票初筛技能
-├── daily_report/       # 每日报告技能
+├── daily_report/      # 每日报告技能
 └── ...
 ```
 
@@ -97,7 +99,7 @@ This is a personal AI assistant running on the OpenClaw platform, mainly used fo
 ### Features
 
 - **Stock Screening**: Exclude ST/*ST and limit-up/limit-down stocks
-- **Quantitative Scoring**: Price trends, capital flow, liquidity, sentiment, risk control
+- **Quantitative Scoring**: Multi-dimensional analysis including price trends, capital flow, liquidity, sentiment, and risk control
 - **Daily Report**: Auto-generate TOP 20 stocks and push to Telegram
 
 ### Scheduled Tasks
@@ -121,7 +123,7 @@ Este es un asistente de IA personal que se ejecuta en la plataforma OpenClaw, pr
 ### Funciones
 
 - **Filtrado de Acciones**: Excluir acciones ST/*ST y con límite de precio
-- **Puntuación Cuantitativa**: Tendencias de precios, flujo de capital, liquidez, sentimiento, control de riesgos
+- **Puntuación Cuantitativa**: Análisis multidimensional incluyendo tendencias de precios, flujo de capital, liquidez, sentimiento y control de riesgos
 - **Informe Diario**: Generar automáticamente TOP 20 y enviar a Telegram
 
 ### Tareas Programadas
